@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSERA Setup Wizard</title>
+    <style>
+        body { width: 350px; font-family: 'Segoe UI', sans-serif; padding: 20px; color: #333; }
+        .step { display: none; }
+        .active { display: block; }
+
+        .progress-bar {
+            width: 100%;
+            background: #eee;
+            height: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .fill {
+            width: 0%;
+            height: 100%;
+            background: #28a745;
+            transition: 0.5s;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #btn-verify { background: #007bff; display: none; }
+
+        input {
+            width: 92%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- STEP 1 -->
+<div id="step1" class="step active">
+    <h2>Enable Privacy Shield? ✨</h2>
+    <p>
+        SSERA uses a local Privacy Engine to protect your data before sending it to AI.
+    </p>
+    <button id="download-btn">
+    Download Privacy Engine
+</button>
+    <button id="btn-accept">Accept & Continue</button>
+    <button id="btn-later" style="background:#eee; color:#666;">Later</button>
+</div>
+
+<!-- STEP 2 -->
+<div id="step2" class="step">
+    <h2>Setup Privacy Engine</h2>
+
+    <p>
+        <b>Step 1:</b> Download Privacy Engine<br>
+        <b>Step 2:</b> Extract the ZIP<br>
+        <b>Step 3:</b> Run the <b>Start Privacy Engine</b> file<br>
+    </p>
+
+    <button onclick="window.open('YOUR_DOWNLOAD_LINK')">
+        Download Privacy Engine
+    </button>
+
+    <div class="progress-bar">
+        <div id="fill" class="fill"></div>
+    </div>
+
+    <p id="status" style="font-size:12px; text-align:center; color:#888;">
+        Waiting for setup...
+    </p>
+
+    <button id="btn-verify">Verify & Connect</button>
+</div>
+
+<!-- STEP 3 -->
+<div id="step3" class="step">
+    <h2>One Last Step 🔑</h2>
+    <p>Enter your Groq API Key:</p>
+
+    <input type="password" id="groq-key" placeholder="gsk_...">
+
+    <button id="btn-finish">Finish Setup</button>
+</div>
+
+<script src="setup.js"></script>
+</body>
+</html>

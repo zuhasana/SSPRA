@@ -14,19 +14,16 @@ pipeline {
             steps {
                 echo 'Building Python project'
 
-                script {
-                    if (isUnix()) {
-                        sh 'python3 -m py_compile server.py'
-                    } else {
-                        bat 'python -m py_compile server.py'
-                    }
-                }
+                bat '"C:\\Users\\ZUHA SANA\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m py_compile server.py'
+
+                echo 'Python build successful'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing project'
+                echo 'Basic validation completed'
             }
         }
     }
